@@ -172,7 +172,7 @@ runs:
         echo "version_code=$(grep 'version/code=' export_presets.cfg | head -1 | awk -F'=' '{print $2}')" >> $GITHUB_ENV
         mkdir -p ${{ inputs.EXPORT_DIR }}/osx/
         mkdir ${{ inputs.EXPORT_DIR }}/web/
-        ~/godot-binary/godot --headless --${mode} "${{ inputs.EXPORT_PRESET_NAME }}"
+        ~/godot-binary/godot --headless --${mode} "${{ inputs.EXPORT_PRESET_NAME }}" ${BUILD_PATH}
         echo "Build Done"
                 
     - name: Upload using butler
